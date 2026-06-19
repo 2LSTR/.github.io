@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>U JAKOB KAISER PLATZ</h2>
+<pre id="output"> ... </pre>
+
+<script>
+
+async function load() {
+    const res = await fetch(
+        "https://v6.db.transport.rest/stops/900000018101/departures?results=2"
+    );
+
+    const data = await res.json();
+
+    document.getElementbyId("output").textContent = JSON.stringify(data, null, 2);
+}
+
+load();
+
+</script>
+
+</body>
+</html>
