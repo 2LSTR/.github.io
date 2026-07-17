@@ -1,25 +1,91 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+<title> Jacket Voice Lines</title>
+</head>
+
 <body>
+<!-- All the sounds -->
+    
+<h2>Babis</h2>
+<button class="playButton" data-sound="sounds/Babi.mp3">Babi</button>
+<button class="playButton" data-sound="sounds/Bubi.mp3">Bubi</button>
+<button class="playButton" data-sound="sounds/Maumau.mp3">Maumau</button>
+<button class="playButton" data-sound="sounds/Miau.mp3">Miau</button>
+<h2>Greetings</h2>
+<button class="playButton" data-sound="sounds/Hallo.mp3">Hallo</button>
+<button class="playButton" data-sound="sounds/Hey.mp3">Hey</button>
+<button class="playButton" data-sound="sounds/Hi.mp3">Hi</button>
+<button class="playButton" data-sound="sounds/Na.mp3">Na</button>
+<button class="playButton" data-sound="sounds/Was machst_.mp3">Was machst_</button>
+<button class="playButton" data-sound="sounds/Wie gehts_.mp3">Wie gehts_</button>
+<h2>Ja</h2>
+<button class="playButton" data-sound="sounds/Ja.mp3">Ja</button>
+<button class="playButton" data-sound="sounds/Ja-2.mp3">Ja-2</button>
+<button class="playButton" data-sound="sounds/Jo.mp3">Jo</button>
+<button class="playButton" data-sound="sounds/Klar.mp3">Klar</button>
+<button class="playButton" data-sound="sounds/Komm.mp3">Komm</button>
+<button class="playButton" data-sound="sounds/Natuerlich.mp3">Natuerlich</button>
 
-<h2>U JAKOB KAISER PLATZ</h2>
-<pre id="output"> ... </pre>
+<h2>Nein</h2>
+<button class="playButton" data-sound="sounds/Ne.mp3">Ne</button>
+<button class="playButton" data-sound="sounds/Nein.mp3">Nein</button>
+<button class="playButton" data-sound="sounds/Noe.mp3">Noe</button>
 
-<script>
+<h2>ok</h2>
+<button class="playButton" data-sound="sounds/Okay.mp3">Okay</button>
+<button class="playButton" data-sound="sounds/Okay-2.mp3">Okay-2</button>
+<button class="playButton" data-sound="sounds/Oki.mp3">Oki</button>
 
-async function load() {
-    const res = await fetch(
-        "https://v6.db.transport.rest/stops/900000018101/departures?results=2"
-    );
+<h2>Answers</h2>
+<button class="playButton" data-sound="sounds/Freut mich.mp3">Freut mich</button>
+<button class="playButton" data-sound="sounds/Ganz gut.mp3">Ganz gut</button>
+<button class="playButton" data-sound="sounds/Gut.mp3">Gut</button>
+<button class="playButton" data-sound="sounds/Leck mich.mp3">Leck mich</button>
+<button class="playButton" data-sound="sounds/Sicher.mp3">Sicher</button>
+<button class="playButton" data-sound="sounds/Spuelschwamm.mp3">Spuelschwamm</button>
+<button class="playButton" data-sound="sounds/Youtube.mp3">Youtube</button>
+<h2>Bye</h2>
+<button class="playButton" data-sound="sounds/Byebye.mp3">Byebye</button>
+<button class="playButton" data-sound="sounds/Gute Nacht.mp3">Gute Nacht</button>
+<button class="playButton" data-sound="sounds/Tschau.mp3">Tschau</button>
 
-    const data = await res.json();
+<h2>Danke</h2>
+<button class="playButton" data-sound="sounds/Danke.mp3">Danke</button>
+<button class="playButton" data-sound="sounds/Vielen Dank.mp3">Vielen Dank</button>
 
-    document.getElementbyId("output").textContent = JSON.stringify(data, null, 2);
-}
+<h2>Fragen</h2>
+<button class="playButton" data-sound="sounds/Ein Spiel.mp3">Ein Spiel</button>
+<button class="playButton" data-sound="sounds/filmschauen.mp3">filmschauen</button>
+<button class="playButton" data-sound="sounds/Spielen.mp3">Spielen</button>
+<button class="playButton" data-sound="sounds/Vid gucken.mp3">Vid gucken</button>
+<button class="playButton" data-sound="sounds/Vid schauen.mp3">Vid schauen</button>
+<button class="playButton" data-sound="sounds/wiewaerfilm.mp3">wiewaerfilm</button>
+<button class="playButton" data-sound="sounds/Wollenwirfilmgucken.mp3">Wollenwirfilmgucken</button>
 
-load();
+<h2>Spiele</h2>
+<button class="playButton" data-sound="sounds/Fortnite.mp3">Fortnite</button>
+<button class="playButton" data-sound="sounds/Heartstone.mp3">Heartstone</button>
+<button class="playButton" data-sound="sounds/Overwatch.mp3">Overwatch</button>
+<h2>Sonstige</h2>
+<button class="playButton" data-sound="sounds/Hab ich programmiert.mp3">Hab ich programmiert</button>
+<button class="playButton" data-sound="sounds/Junge und das biest.mp3">Junge und das biest</button>
 
-</script>
+<!-- All the sounds -->
+
+<audio id="audio"></audio>
 
 </body>
+
+<script>
+const audio = document.getElementById("audio");
+document.querySelectorAll(".playButton").forEach(button => {
+    button.addEventListener("click", () => {
+        audio.src = button.dataset.sound;
+        audio.play();
+    });
+});
+</script>
+
 </html>
